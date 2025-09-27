@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tanamku • Mobile</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">🌱</div>
+    <div>
+      <div class="title">Tanamku</div>
+      <div class="subtitle">Belajar menanam, panen mandiri</div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== BERANDA ========== -->
+    <section id="home" data-route class="active">
+      <div class="card hero">
+        <h1>Selamat datang! 👋</h1>
+        <p>Platform edukasi untuk belajar bercocok tanam di rumah—soil & hidroponik.</p>
+        <div class="cta">
+          <button class="btn btn-primary" data-goto="panduan">Mulai dari Panduan</button>
+          <button class="btn btn-ghost" data-goto="kamus">Lihat Kamus</button>
+        </div>
+      </div>
+
+      <!-- Widget Cuaca Kecil -->
+      <div class="card weather">
+        <div class="weather-row">
+          <div>
+            <strong>Cuaca</strong>
+            <div class="muted">Lokasi:</div>
+          </div>
+          <select id="citySelect" aria-label="Pilih kota">
+            <option value="Palangkaraya,ID" selected>Palangka Raya</option>
+            <option value="Jakarta,ID">Jakarta</option>
+            <option value="Bandung,ID">Bandung</option>
+            <option value="Surabaya,ID">Surabaya</option>
+            <option value="Denpasar,ID">Denpasar</option>
+          </select>
+        </div>
+        <div id="weatherBox" class="weather-box">
+          <div class="big">--°C</div>
+          <div class="muted">Memuat...</div>
+        </div>
+      </div>
+
+      <!-- Shortcut Berita (3 terbaru) -->
+      <div class="row" style="margin:8px 0">
+        <div class="section-title">Berita Pangan (Terbaru)</div>
+        <div id="newsListHome" class="news"></div>
+        <button class="btn btn-ghost" data-goto="berita">Lihat semua berita →</button>
+      </div>
+
+      <h2 class="section-title">Fitur Utama</h2>
+      <div class="grid">
+        <div class="card item">
+          <div class="ic">📘</div>
+          <div>
+            <h3>Panduan Menanam</h3>
+            <p>Soil & Hidroponik—langkah singkat untuk pemula.</p>
+          </div>
+        </div>
+        <div class="card item">
+          <div class="ic">🌱</div>
+          <div>
+            <h3>Kamus Pertanian</h3>
+            <p>Istilah penting (pH, NPK, media tanam, mulsa) dijelaskan sederhana.</p>
+          </div>
+        </div>
+        <div class="card item">
+          <div class="ic">🧮</div>
+          <div>
+            <h3>Interaktif</h3>
+            <p>Kalkulator panen & kuis—belajar sambil praktik.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PANDUAN (Soil & Hidro) ========== -->
+    <section id="panduan" data-route>
+      <h2 class="section-title">Panduan Menanam</h2>
+
+      <!-- Tabs Soil/Hidro -->
+      <div class="tabs">
+        <button class="tab active" data-pan="soil">Soil</button>
+        <button class="tab" data-pan="hidro">Hidroponik</button>
+      </div>
+
+      <!-- List panduan diisi via JS -->
+      <div id="listSoil" class="list"></div>
+      <div id="listHidro" class="list" style="display:none"></div>
+    </section>
+
+    <!-- ========== KAMUS ========== -->
+    <section id="kamus" data-route>
+      <h2 class="section-title">Kamus Pertanian</h2>
+      <div class="card search">
+        <input id="q" class="input" placeholder="Cari istilah (mis. pH, NPK, mulsa)" />
+        <button class="btn btn-primary" id="btnCari">Cari</button>
+      </div>
+      <div id="kamusList" class="grid" style="margin-top:10px"></div>
+    </section>
+
+    <!-- ========== BERITA (LIST) ========== -->
+    <section id="berita" data-route>
+      <h2 class="section-title">Berita Pangan</h2>
+      <div id="newsListFull" class="news"></div>
+    </section>
+
+    <!-- ========== BERITA DETAIL ========== -->
+    <section id="beritaDetail" data-route>
+      <div class="card" style="display:flex;gap:8px;align-items:center; margin-bottom:10px">
+        <button class="btn" id="backToNews" aria-label="Kembali ke daftar berita">← Kembali</button>
+        <div class="muted">Detail Berita</div>
+      </div>
+      <article class="card" id="newsDetailCard">
+        <!-- Akan di-render via JS -->
+      </article>
+    </section>
+
+    <!-- ========== INTERAKTIF ========== -->
+    <section id="interaktif" data-route>
+      <h2 class="section-title">Kalkulator Panen</h2>
+      <div class="card row">
+        <label for="tanaman">Komoditas</label>
+        <select id="tanaman">
+          <option value="cabai">Cabai (pot)</option>
+          <option value="tomat">Tomat (pot)</option>
+          <option value="kangkung">Kangkung (hidroponik)</option>
+        </select>
+        <label for="jumlah">Jumlah pot/bedeng</label>
+        <input type="number" id="jumlah" min="1" value="5" />
+        <button class="btn btn-primary" id="hitung">Hitung Estimasi</button>
+        <div id="hasil" class="result"></div>
+      </div>
+
+      <h2 class="section-title">Kuis Ringkas</h2>
+      <div class="card row" id="quiz">
+        <div>
+          <p><strong>1.</strong> Media tanam cabai yang baik mengandung?</p>
+          <label><input type="radio" name="q1" value="A"/> 100% tanah liat</label>
+          <label><input type="radio" name="q1" value="B"/> Campuran tanah, kompos, sekam</label>
+          <label><input type="radio" name="q1" value="C"/> Hanya pasir</label>
+        </div>
+        <div>
+          <p><strong>2.</strong> Dalam hidroponik wick, fungsi sumbu adalah?</p>
+          <label><input type="radio" name="q2" value="A"/> Menopang tanaman</label>
+          <label><input type="radio" name="q2" value="B"/> Mengalirkan nutrisi ke media</label>
+          <label><input type="radio" name="q2" value="C"/> Mengukur pH</label>
+        </div>
+        <button class="btn btn-primary" id="cekKuis">Cek Nilai</button>
+        <div id="skor" class="result"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom Nav -->
+  <nav class="tabbar">
+    <button data-tab="home" class="active">🏠 <span class="lbl">Beranda</span></button>
+    <button data-tab="panduan">📘 <span class="lbl">Panduan</span></button>
+    <button data-tab="kamus">🌱 <span class="lbl">Kamus</span></button>
+    <button data-tab="berita">📰 <span class="lbl">Berita</span></button>
+    <button data-tab="interaktif">🧮 <span class="lbl">Interaktif</span></button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>

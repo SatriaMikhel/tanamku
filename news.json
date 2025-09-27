@@ -1,0 +1,44 @@
+[
+  {
+    "id": "101",
+    "t": "Harga cabe rawit stabil, panen petani meningkat",
+    "d": "Perawatan konsisten & cuaca cerah bantu produksi.",
+    "date": "27 Sep 2025",
+    "author": "Redaksi Tanamku",
+    "img": "https://images.unsplash.com/photo-1518977956815-dee00686dc75?q=80&w=1600",
+    "url": "#",
+    "content": [
+      "Sejumlah wilayah melaporkan panen cabai rawit yang lebih baik dibanding bulan lalu. Kondisi cuaca yang relatif cerah mempengaruhi intensitas bunga dan pembuahan.",
+      "Petani disarankan menjaga kelembapan media pada pagi dan sore hari serta menerapkan mulsa untuk menekan penguapan.",
+      "Pemupukan dengan kandungan Kalium lebih tinggi pada fase generatif dapat membantu kualitas buah."
+    ]
+  },
+  {
+    "id": "102",
+    "t": "Urban farming naik daun di kampus",
+    "d": "Mahasiswa mulai manfaatkan hidroponik skala kecil.",
+    "date": "25 Sep 2025",
+    "author": "Tim Kampus UPR",
+    "img": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1600",
+    "url": "#",
+    "content": [
+      "Komunitas mahasiswa mengembangkan sistem hidroponik wick dan NFT skala mini untuk pembelajaran.",
+      "Kegiatan ini mendorong literasi pangan serta kemandirian sayur harian di lingkungan kampus.",
+      "Pembimbing merekomendasikan pencatatan EC/PPM dan pH guna menjaga stabilitas nutrisi."
+    ]
+  },
+  {
+    "id": "103",
+    "t": "Tips simpan sayuran agar tahan lama",
+    "d": "Gunakan kemasan berlubang & rak kulkas bagian bawah.",
+    "date": "22 Sep 2025",
+    "author": "Editor",
+    "img": "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?q=80&w=1600",
+    "url": "#",
+    "content": [
+      "Simpan sayuran berdaun pada wadah berlubang agar sirkulasi udara terjaga.",
+      "Jauhkan dari buah penghasil etilen seperti pisang agar tidak cepat layu.",
+      "Gunakan rak bawah kulkas dengan kelembapan lebih tinggi untuk sayuran hijau."
+    ]
+  }
+]
